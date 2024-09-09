@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "80ada0aa-9e37-4c31-9386-0a3fe1d9b261",
+		"name": "API Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5515105"
+	},
+	"item": [
+		{
+			"name": "Reqres Get page1 users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=1",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Individual User from Reqres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/3",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Amazon Get request for JBL Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.amazon.in/hz/mobile/mission?p=Z1fX871Y9X77d%2B8R%2F91035vGNqr5zunahVP3NhuFHSWt0cEjPSkd37%2FYn5Hx2sRoM7rlBRxKJjobmWKpNGlOPHccY1lxM8zcR3TtDltspqUByi3e%2F3wEMM5QVF2LiqYTVR1rZ%2BSgiE0SC%2BZ62DhOem4vIChWpFUJV5V08O9teoy2wVD%2FmdJ6%2F44ghjFeMcy9ej1h33%2BN6RWCU6w2t%2B1CfiyEWWLUP%2BYqCVo7%2BbLNmCXK2OZKUvN%2FeMxLY%2BuS7W0s%2FTdDC6MmBo0b4p%2F8t05IkB5hF7D322jyqT%2BB2m77KvdHLzArbkR%2Bkhs1JNCtzdMeGRWQBAnymuWQVGas66Mxgi8%2Bz7NQT9DgIBY4cQjtHOfKU9YNAxEXwrJCamJuFPqfHrwLt6pF6cpzrDXM6DzMBw%3D%3D&ref_=ci_mcx_mi&pf_rd_r=66XGYGBXV2ZP9QGXAQCQ&pf_rd_p=45c1a5b4-dab8-4658-948a-91185ec4c179&pd_rd_r=f65fc5f1-1e38-4726-b841-8775d6d8a453&pd_rd_w=LgFhr&pd_rd_wg=0KJnV",
+					"protocol": "https",
+					"host": [
+						"www",
+						"amazon",
+						"in"
+					],
+					"path": [
+						"hz",
+						"mobile",
+						"mission"
+					],
+					"query": [
+						{
+							"key": "p",
+							"value": "Z1fX871Y9X77d%2B8R%2F91035vGNqr5zunahVP3NhuFHSWt0cEjPSkd37%2FYn5Hx2sRoM7rlBRxKJjobmWKpNGlOPHccY1lxM8zcR3TtDltspqUByi3e%2F3wEMM5QVF2LiqYTVR1rZ%2BSgiE0SC%2BZ62DhOem4vIChWpFUJV5V08O9teoy2wVD%2FmdJ6%2F44ghjFeMcy9ej1h33%2BN6RWCU6w2t%2B1CfiyEWWLUP%2BYqCVo7%2BbLNmCXK2OZKUvN%2FeMxLY%2BuS7W0s%2FTdDC6MmBo0b4p%2F8t05IkB5hF7D322jyqT%2BB2m77KvdHLzArbkR%2Bkhs1JNCtzdMeGRWQBAnymuWQVGas66Mxgi8%2Bz7NQT9DgIBY4cQjtHOfKU9YNAxEXwrJCamJuFPqfHrwLt6pF6cpzrDXM6DzMBw%3D%3D"
+						},
+						{
+							"key": "ref_",
+							"value": "ci_mcx_mi"
+						},
+						{
+							"key": "pf_rd_r",
+							"value": "66XGYGBXV2ZP9QGXAQCQ"
+						},
+						{
+							"key": "pf_rd_p",
+							"value": "45c1a5b4-dab8-4658-948a-91185ec4c179"
+						},
+						{
+							"key": "pd_rd_r",
+							"value": "f65fc5f1-1e38-4726-b841-8775d6d8a453"
+						},
+						{
+							"key": "pd_rd_w",
+							"value": "LgFhr"
+						},
+						{
+							"key": "pd_rd_wg",
+							"value": "0KJnV"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gorest API v2 Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gorest fetch Ind User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in//public/v2/users/7386327",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"",
+						"public",
+						"v2",
+						"users",
+						"7386327"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gorest Create user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\":\"TestEngineer6Sep\",\r\n\"gender\":\"Male\",\r\n\"email\":\"test@6123sepgmail.com\",\r\n\"status\":\"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updtae Ind user On Go Rest",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GoRest Delete",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
