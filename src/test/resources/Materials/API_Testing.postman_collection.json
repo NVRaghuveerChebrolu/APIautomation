@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "80ada0aa-9e37-4c31-9386-0a3fe1d9b261",
+		"name": "API_Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5515105"
+	},
+	"item": [
+		{
+			"name": "Reqres Get page2 users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// to store the response from the server\r",
+							"var res=pm.response.json();\r",
+							"console.log(res)\r",
+							"\r",
+							"//validate for page number 2\r",
+							"pm.test(\"Test for json reponse which contain page number as 2\",()=>{\r",
+							"    pm.expect(res.page).to.eql(2);\r",
+							"})\r",
+							"\r",
+							"//verify for12 records\r",
+							"pm.test(\"Test for total records should be 12\",()=>{\r",
+							"    pm.expect(res.total).to.eql(12);\r",
+							"})\r",
+							"\r",
+							"//test for id 8\r",
+							"pm.test(\"Test for id 8\",()=>{\r",
+							"    pm.expect(res.data[1].id).to.eql(8);\r",
+							"})\r",
+							"\r",
+							"//test for firt name george\r",
+							"pm.test(\"Test for fist name George\",()=>{\r",
+							"    pm.expect(res.data[4].first_name).to.eql(\"George\");\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLReqres}}/api/users?page=2",
+					"host": [
+						"{{baseURLReqres}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Individual User from Reqres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLReqres}}/api/users/3",
+					"host": [
+						"{{baseURLReqres}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gorest API v2 Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLGoRest}}/public/v2/users",
+					"host": [
+						"{{baseURLGoRest}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gorest fetch Ind User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLGoRest}}//public/v2/users/7400935",
+					"host": [
+						"{{baseURLGoRest}}"
+					],
+					"path": [
+						"",
+						"public",
+						"v2",
+						"users",
+						"7400935"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gorest Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to validate the POST request\r",
+							"pm.test(\"Response status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Test to check the response body structure and values\r",
+							"pm.test(\"Response body structure is valid\", function () {\r",
+							"    var responseJSON = pm.response.json();\r",
+							"    pm.expect(responseJSON).to.be.an('object').that.has.property('id');\r",
+							"    pm.expect(responseJSON).to.have.property('name');\r",
+							"    pm.expect(responseJSON).to.have.property('email');\r",
+							"    pm.expect(responseJSON).to.have.property('gender');\r",
+							"    pm.expect(responseJSON).to.have.property('status');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\":\"TestEngineer12345Sep123\",\r\n\"gender\":\"Male\",\r\n\"email\":\"test@612345sepgmail.com\",\r\n\"status\":\"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLGoRest}}/public/v2/users",
+					"host": [
+						"{{baseURLGoRest}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updtae Ind user On Go Rest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"TestEngineerUpdatedOn12Sep123\",\r\n    \"email\": \"testUpdatedsep@gmail.com\",\r\n    \"status\": \"Inactive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLGoRest}}/public/v2/users/7405071",
+					"host": [
+						"{{baseURLGoRest}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"7405071"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GoRest Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 204 for the DELETE request\", function () {\r",
+							"  pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURLGoRest}}/public/v2/users/7405071",
+					"host": [
+						"{{baseURLGoRest}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"7405071"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
