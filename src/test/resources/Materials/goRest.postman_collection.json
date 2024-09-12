@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "336604c4-15d0-4f5a-bf7f-5a0c6ed4fa8e",
+		"_postman_id": "6bc3150f-670f-4d0c-a29c-45f2d789f998",
 		"name": "goRest",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5515105"
 	},
 	"item": [
 		{
@@ -40,13 +41,67 @@
 		},
 		{
 			"name": "All Users in V2 of GoRest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//console print message\r",
+							"console.log(\"hello welcome to console messgae using js\");\r",
+							"//create a function using js\r",
+							"function hello(){\r",
+							"   console.log(\"i am in hello function!\"); \r",
+							"}\r",
+							"//call function\r",
+							"hello();\r",
+							"//Arrow or lambda function\r",
+							"test1=()=> {\r",
+							"console.log(\"This is a lambda function!\");\r",
+							"}\r",
+							"//call the function\r",
+							"test1();\r",
+							"var x =100;\r",
+							"console.log(x);\r",
+							"//postman supports javascript\r",
+							"//postman object is pm\r",
+							"//function for testing test()\r",
+							"//postman basic script is in BDD style\r",
+							"\r",
+							"//to test the response code to be 200\r",
+							"\r",
+							"pm.test(\"To verify whether response code is 201\" ,function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//to validate status message is ok\r",
+							"pm.test(\"to verify for status message OK\",()=>{\r",
+							"    pm.expect(pm.response.status).to.eql(\"OK\")\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "872e03bd9bbd5c4f0af29809de1486e6bc11e8706605746f6bb970a30654b65a",
+							"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
 							"type": "string"
 						}
 					]
@@ -72,13 +127,38 @@
 		},
 		{
 			"name": "CreateUserInGoRest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"//postman supports chai library which is going to use expect function\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Test5212345Trainer\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "872e03bd9bbd5c4f0af29809de1486e6bc11e8706605746f6bb970a30654b65a",
+							"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
 							"type": "string"
 						}
 					]
@@ -87,7 +167,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Raghuveer12345Trainer\",\r\n  \"gender\": \"male\",\r\n  \"email\": \"Test@Raghu12345.com\",\r\n  \"status\": \"active\"\r\n}",
+					"raw": "{\r\n  \"name\": \"Test5212345Trainer\",\r\n  \"gender\": \"male\",\r\n  \"email\": \"Test@Raghu2312345.com\",\r\n  \"status\": \"Inactive\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -155,6 +235,21 @@
 		},
 		{
 			"name": "DeleteUserInGoRest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 204\", function () {\r",
+							"  pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -178,7 +273,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://gorest.co.in/public/v2/users/2612194",
+					"raw": "https://gorest.co.in/public/v2/users/7400962",
 					"protocol": "https",
 					"host": [
 						"gorest",
@@ -189,11 +284,43 @@
 						"public",
 						"v2",
 						"users",
-						"2612194"
+						"7400962"
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "474c992a7df0a3dcdbde8a395df73e4067ced6a3d66c9e243d5cc58a35208609",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
