@@ -1,0 +1,5 @@
+{
+  "name": "RaghuveerAutomationTrainerUpdated",
+  "email": "Trainer@gmail123.com",
+  "status": "inactive"
+}

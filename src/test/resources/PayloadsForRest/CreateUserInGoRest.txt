@@ -1,0 +1,6 @@
+{
+  "name": "RaghuveerAutomationTrainer",
+  "gender": "male",
+  "email": "Trainer@gmail.com",
+  "status": "active"
+}
