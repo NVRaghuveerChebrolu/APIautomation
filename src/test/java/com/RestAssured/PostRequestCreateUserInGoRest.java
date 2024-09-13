@@ -3,6 +3,7 @@ package com.RestAssured;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -68,12 +69,18 @@ public class PostRequestCreateUserInGoRest extends Library{
 	@Test
 	public void testPOJOResponse() {
 		System.out.println("Post using POJO");
+		
+//		HashMap<String, String> user = new HashMap<>();
+//      user.put("name", "John Doe");
+//      user.put("job", "Automation Tester");
+		
 		POJOdata data = new POJOdata();
 		data.setName("Govind");
 		data.setJob("Tester");
 		Response res = given().
 		header("Content-type", "application/json").
 		body(data).
+		//body(user).
 		when().
 		post("https://reqres.in/api/users");
 		System.out.println("Response form testPOJO:");
