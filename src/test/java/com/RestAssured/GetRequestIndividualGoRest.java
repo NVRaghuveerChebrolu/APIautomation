@@ -31,23 +31,23 @@ public class GetRequestIndividualGoRest extends Library{
 	
 	@Test()
 	public void GetRequest() {
-	Response Res= RestAssured
-			.given()
-			.when()
-			.auth().oauth2(ObjProp.getProperty("TokenOfGoRestAPI"))
-			.get(ObjProp.getProperty("GoRestIndUser"));
-	
-	Assert.assertEquals(Res.getStatusCode(), Integer.parseInt(ObjProp.getProperty("CreatedResponseStatusCode")));
-	
-	ResponseBody resBody = Res.getBody();
-	String ResponseFromGET_APIcall = resBody.asString();
-	System.out.println("ResponseFromGET_APIcall:"+ResponseFromGET_APIcall);
-	
-	JsonPath jsnPath = Res.jsonPath();
-	String Name = jsnPath.get("name");
-	String Gender = jsnPath.get("gender");
-	System.out.println("Name:"+Name);
-	System.out.println("Gender:"+Gender);
+		Response Res= RestAssured
+				.given()
+				.when()
+				.auth().oauth2(ObjProp.getProperty("TokenOfGoRestAPI"))
+				.get(ObjProp.getProperty("GoRestIndUser"));
+		
+		Assert.assertEquals(Res.getStatusCode(), Integer.parseInt(ObjProp.getProperty("SuccessResponseStatusCode")));
+		
+		ResponseBody resBody = Res.getBody();
+		String ResponseFromGET_APIcall = resBody.asString();
+		System.out.println("ResponseFromGET_APIcall:"+ResponseFromGET_APIcall);
+		
+		JsonPath jsnPath = Res.jsonPath();
+		String Name = jsnPath.get("name");
+		String Gender = jsnPath.get("gender");
+		System.out.println("Name:"+Name);
+		System.out.println("Gender:"+Gender);
 	}
 	
 	@BeforeMethod

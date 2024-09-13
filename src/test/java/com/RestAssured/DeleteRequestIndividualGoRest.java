@@ -27,7 +27,7 @@ public class DeleteRequestIndividualGoRest extends com.Utility.Library{
 			.when()
 			.auth().oauth2(ObjProp.getProperty("TokenOfGoRestAPI"))
 			.delete(ObjProp.getProperty("GoRestDeleteUser"));
-	Assert.assertEquals(Res.getStatusCode(), Integer.parseInt(ObjProp.getProperty("SuccessResponseStatusCode")));
+	Assert.assertEquals(Res.getStatusCode(), Integer.parseInt(ObjProp.getProperty("DeleteResponseStatusCode")));
 	}
 	
 	@BeforeMethod

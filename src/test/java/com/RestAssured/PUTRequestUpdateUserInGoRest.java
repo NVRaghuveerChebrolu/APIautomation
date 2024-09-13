@@ -50,8 +50,9 @@ public class PUTRequestUpdateUserInGoRest extends Library {
 	System.out.println("Name:"+Name);
 	System.out.println("Gender:"+Gender);
 	System.out.println("status:"+status);
-	Assert.assertEquals(Name, "RaghuveerAutomationTrainerUpdated", "User not updated Successfully");
-	Assert.assertEquals(status, "inactive", "User not updated Successfully");
+	//updated name and status are hard coded below
+	Assert.assertEquals(Name, "Sanjay Datta 1234", "User name not updated Successfully");
+	Assert.assertEquals(status, "inactive", "User status not updated Successfully");
 	}
 	
 

@@ -28,7 +28,7 @@ public class GetRequestUsersGoRestAPI extends Library{
 			.when()
 			.auth().oauth2(ObjProp.getProperty("TokenOfGoRestAPI"))
 			.get(ObjProp.getProperty("GoRestAllV2Users"));
-			
+	System.out.println("Status code of Get Call:"+Res.getStatusCode());
 	Assert.assertEquals(Res.getStatusCode(), Integer.parseInt(ObjProp.getProperty("SuccessResponseStatusCode")));
 	ResponseBody resBody = Res.getBody();
 	String ResponseFromGET_APIcall = resBody.asString();

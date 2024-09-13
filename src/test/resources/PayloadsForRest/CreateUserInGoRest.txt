@@ -1,6 +1,6 @@
 {
-  "name": "RaghuveerAutomationTrainer",
+  "name": "Jagadeesh Parivar",
   "gender": "male",
-  "email": "Trainer@gmail.com",
+  "email": "parivar13@gmail.com",
   "status": "active"
 }

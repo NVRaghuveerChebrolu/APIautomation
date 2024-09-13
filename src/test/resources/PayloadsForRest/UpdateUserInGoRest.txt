@@ -1,5 +1,5 @@
 {
-  "name": "RaghuveerAutomationTrainerUpdated",
-  "email": "Trainer@gmail123.com",
+  "name": "Sanjay Datta 1234",
+  "email": "Sanjay23Updated@gmail.com",
   "status": "inactive"
 }

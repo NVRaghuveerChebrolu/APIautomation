@@ -14,7 +14,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 import com.Utility.Library;
 
 import io.restassured.RestAssured;
@@ -26,6 +27,7 @@ import io.restassured.response.ResponseBody;
 public class PostRequestCreateUserInGoRest extends Library{
 	@Test()
 	public void PostRequest() throws FileNotFoundException {	
+	System.out.println("inside PostRequest");
 	FileInputStream objFileInput = new FileInputStream(new String(System.getProperty("user.dir") + "//src//test//resources//PayloadsForRest//CreateUserInGoRest.txt"));
 	Response Res= RestAssured
 			.given()
@@ -46,6 +48,38 @@ public class PostRequestCreateUserInGoRest extends Library{
 	System.out.println("Name:"+Name);
 	System.out.println("Gender:"+Gender);
 	Assert.assertEquals(Name, ObjProp.getProperty("PostRequestUserNameCreated"), "User not created Successfully with expected name");
+	}
+	
+	@Test
+	public void postUsingPOJO() {
+		System.out.println("Post using POJO");
+		POJOdata data = new POJOdata();
+		data.setName("Aravind");
+		data.setJob("Developer");
+		given().header("Content-type", "application/json").body(data).
+		when().post("https://reqres.in/api/users").
+		then().
+		statusCode(201).
+		body("name",equalTo("Aravind")).
+		log().all();
+	}
+	
+	@Test
+	public void testPOJOResponse() {
+		System.out.println("Post using POJO");
+		POJOdata data = new POJOdata();
+		data.setName("Govind");
+		data.setJob("Tester");
+		Response res = given().
+		header("Content-type", "application/json").
+		body(data).
+		when().
+		post("https://reqres.in/api/users");
+		System.out.println("Response form testPOJO:");
+		System.out.println(res.asPrettyString());
+		String name = res.jsonPath().getString("name");
+		Assert.assertEquals(name, "Govind");
+		//Assert.assertTrue()
 	}
 	
 
