@@ -57,6 +57,7 @@ public class PostRequestCreateUserInGoRest extends Library{
 		data.setName("Aravind");
 		data.setJob("Developer");
 		given().header("Content-type", "application/json").body(data).
+		//given below POST end point URL is hard coded
 		when().post("https://reqres.in/api/users").
 		then().
 		statusCode(201).
@@ -78,8 +79,9 @@ public class PostRequestCreateUserInGoRest extends Library{
 		System.out.println("Response form testPOJO:");
 		System.out.println(res.asPrettyString());
 		String name = res.jsonPath().getString("name");
+		//below Govind is hard coded
 		Assert.assertEquals(name, "Govind");
-		//Assert.assertTrue()
+	
 	}
 	
 

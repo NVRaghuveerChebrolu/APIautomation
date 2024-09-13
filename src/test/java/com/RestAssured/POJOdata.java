@@ -6,7 +6,7 @@ public class POJOdata {
 	private String name;
 	private String job;
 
-	// Methods
+	// getter methods
 	public String getName() {
 		return name;
 	}
@@ -15,6 +15,7 @@ public class POJOdata {
 		this.name = name;
 	}
 
+	// setter methods
 	public String getJob() {
 		return job;
 	}

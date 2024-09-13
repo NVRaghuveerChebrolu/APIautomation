@@ -22,7 +22,7 @@ import io.restassured.response.ResponseBody;
 
 public class GetRequestUsersGoRestAPI extends Library{
 	@Test()
-	public void GetRequest() {
+	public void GetRequestV2AllUsers() {
 	Response Res= RestAssured
 			.given()
 			.when()

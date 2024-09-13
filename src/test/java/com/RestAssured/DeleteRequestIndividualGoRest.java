@@ -17,9 +17,10 @@ import com.Utility.Library;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 
 
-public class DeleteRequestIndividualGoRest extends com.Utility.Library{
+public class DeleteRequestIndividualGoRest extends Library{
 	@Test()
 	public void GetRequest() {
 	Response Res= RestAssured
@@ -28,6 +29,19 @@ public class DeleteRequestIndividualGoRest extends com.Utility.Library{
 			.auth().oauth2(ObjProp.getProperty("TokenOfGoRestAPI"))
 			.delete(ObjProp.getProperty("GoRestDeleteUser"));
 	Assert.assertEquals(Res.getStatusCode(), Integer.parseInt(ObjProp.getProperty("DeleteResponseStatusCode")));
+	
+	
+	getAllUsers();
+	
+	ResponseBody resBody = Res.getBody();
+	String ResponseFromPut_APIcall = resBody.asString();
+	System.out.println("ResponseFromPut_APIcall:"+ResponseFromPut_APIcall);
+
+	if(!ResponseFromPut_APIcall.contains("7408805")) {
+		boolean flag=true;
+		Assert.assertTrue(flag,"User delected is found in the reponse");
+	}
+	
 	}
 	
 	@BeforeMethod
